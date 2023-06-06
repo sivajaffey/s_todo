@@ -1,10 +1,14 @@
 import 'dart:convert';
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:s_todo/main.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'firebase_options.dart';
 
 var APPNAME = 'S-TODO';
+var APPESC = 'A TODO application';
+
 NavigatePage(name, context) {
   if (name=='back') {
     Navigator.pop(context);
@@ -17,6 +21,49 @@ getRandomID() {
   return DateTime.now().microsecondsSinceEpoch;
 }
 
+getSession() {
+  final User? user = FirebaseAuth.instance.currentUser;
+  return user;
+}
+
+ResetPassword(email,context) {
+    FirebaseAuth.instance.sendPasswordResetEmail(
+      email: email
+    ).then((value) => {
+            appAlert(context, 'Reset password link sent to email',(){}),
+            NavigatePage(MyApp(),context)
+      }, onError: (error)=>{
+        appAlert(context, '${error.message}',(){})
+      });
+}
+
+LoginUser(email,password, context) {
+    return FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: email,
+        password: password
+      ).then((value) => {
+            appAlert(context, 'Logged In',(){}),
+            NavigatePage(MyApp(),context)
+      }, onError: (error)=>{
+        appAlert(context, '${error.message}',(){})
+      });
+}
+
+LogoutUser() {
+  FirebaseAuth.instance.signOut();
+}
+
+RegisterUser (email,password,context) {
+  FirebaseAuth.instance.createUserWithEmailAndPassword(
+    email: email,
+    password: password
+  ).then((value) => {
+            appAlert(context, 'Registered',(){}),
+            NavigatePage(MyApp(),context)
+      }, onError: (error)=>{
+        appAlert(context, '${error.message}',(){})
+  });
+}
 
 addToList(title, desc, context, rows, id) {
   if (id == null) {
