@@ -1,2 +1,3 @@
 # s_todo
-Todo app build using flutter
+
+A TODO Application build using Flutter.
