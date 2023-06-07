@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -14,12 +16,12 @@ class SettingsContent extends StatefulWidget {
 class _SettingsContentState extends State<SettingsContent> {
   var username = '';
   var password = '';
+  List rows = [];
   String page = 'Login';
   var uid = getSession()?.uid;
   @override
 
   void initState () {
-    print(this.uid);
     if (this.uid != null) {
       this.setState(() {
         this.page = 'loggedIn';
@@ -70,9 +72,6 @@ class _SettingsContentState extends State<SettingsContent> {
       }
   }
 
-  BackupProgress() {
-    
-  }
   
   RenderSettingsOnLogout () {
     switch(this.page) { 
@@ -106,7 +105,7 @@ class _SettingsContentState extends State<SettingsContent> {
   RenderSettingsOnLogin () {
     return Scaffold(
       appBar: AppBar(
-        title : Text('Settings'),
+        title : Text('Settings', style: TextStyle(color: Colors.blue[900]),),
         leading: IconButton(
           icon: Icon(Icons.arrow_back, color: Colors.black87),
           onPressed: () =>  Navigator.pop(context),
@@ -118,19 +117,19 @@ class _SettingsContentState extends State<SettingsContent> {
       Container(child: Column(children: [
         SizedBox(height: 30.0,),
         ListTile(
-              leading: Icon(Icons.backup),
-              title: Text('Backup', style: TextStyle(color: Colors.black)),
+              leading: Icon(Icons.backup, color: Colors.blue[900],),
+              title: Text('Backup', style: TextStyle(color: Colors.blue[900])),
               hoverColor:Colors.blue[200],
               subtitle:
-                  Text('Click to Backup your progress.'),
+                  Text('Backup your progress. Login to sync data current data'),
               onTap: () => {
                 BackupProgress(),
               },
             ),
             ListTile(
-              leading: Icon(Icons.power_settings_new_sharp),
+              leading: Icon(Icons.power_settings_new_sharp, color: Colors.blue[900],),
               hoverColor:Colors.blue[200],
-              title: Text('Logout', style: TextStyle(color: Colors.black)),
+              title: Text('Logout', style: TextStyle(color: Colors.blue[900])),
               onTap:() => {
                 LogoutUser(),
                 NavigatePage(MyApp(),context)

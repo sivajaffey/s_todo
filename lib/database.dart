@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:s_todo/main.dart';
@@ -8,6 +9,13 @@ import 'firebase_options.dart';
 
 var APPNAME = 'S-TODO';
 var APPESC = 'A TODO application';
+var Auth;
+
+final db = FirebaseFirestore.instance;
+void main (){
+  Auth = FirebaseAuth.instance.useAuthEmulator('localhost', 9099);
+}
+
 
 NavigatePage(name, context) {
   if (name=='back') {
@@ -78,6 +86,7 @@ addToList(title, desc, context, rows, id) {
       };
       rows.add(val);
       saveData('${APPNAME}_row', rows);
+      BackupProgress();
       NavigatePage(MyApp(), context);
   } else {
     List arr = [];
@@ -91,6 +100,7 @@ addToList(title, desc, context, rows, id) {
       }
     }
       saveData('${APPNAME}_row', arr);
+      BackupProgress();
       NavigatePage(MyApp(), context);
   }
 }
@@ -106,6 +116,39 @@ rmData(key) async {
 loadData(String key) async {
   final prefs = await SharedPreferences.getInstance();
   return prefs.get(key);
+}
+BackupProgress() {
+  final uid = getSession()?.uid;
+  if (uid != null) {
+  List arr = [];
+   loadData('${APPNAME}_row').then((data)=>{
+      data = jsonDecode(data),
+      if (data != null && data.length > 0) {
+      for(int i=0;i<data.length;i++) {
+              arr.add(data[i])
+      },
+      }
+    });
+
+  final docSet = db.collection(APPNAME).doc(uid).collection('progress').doc('list');
+  final docRef = getProgress();
+  docRef.then((value) => {
+    if (value.data() == null) {
+      docSet.set({
+        'progress': arr
+      })
+    } else {
+      docSet.update({
+        'progress': arr
+      })
+    }
+  });
+  }
+}
+
+getProgress() {
+  final uid = getSession()?.uid;
+  return db.collection(APPNAME).doc(uid).collection('progress').doc('list').get();
 }
 appAlert(context, message, actionFunc) {
   ScaffoldMessenger.of(context).showSnackBar(
