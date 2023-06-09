@@ -1,8 +1,8 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:s_todo/add.dart';
-import 'package:s_todo/database.dart';
+import 'package:stodo/add.dart';
+import 'package:stodo/database.dart';
 
 import 'settings.dart';
 

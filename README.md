@@ -40,6 +40,16 @@ add these lines into android/app/build.gradle
 - def keystorePropertiesFile = rootProject.file('key.properties')
 - def keystoreProperties = new Properties()
 - keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+
+- signingConfigs{
+        release{
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
+            storeFile file(keystoreProperties['storeFile'])
+            storePassword keystoreProperties['storePassword']
+        }
+    }
+    
 - applicationId "com.example.nexttime" ( change app id here )
 - minSdkVersion set based on your config
 # Release Command 

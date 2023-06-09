@@ -33,7 +33,7 @@ class SplashScreenState extends State {
           mainAxisAlignment:MainAxisAlignment.center,
           children: [
             Align(alignment: Alignment.center,child: 
-                Icon(Icons.timelapse_outlined, size: 90, color: Colors.white,),
+                Icon(Icons.check_circle_outline, size: 100, color: Colors.white,),
             ),
             Align(alignment: Alignment.center,child: 
                 Text('${APPNAME}',style: TextStyle(fontFamily: "NexaRegular", color: Colors.white,fontSize: 45.0,
