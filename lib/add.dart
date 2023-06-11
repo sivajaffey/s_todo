@@ -68,7 +68,7 @@ class _AddTodoState extends State<AddTodo> {
                     keyboardType: TextInputType.emailAddress,
                     decoration: const InputDecoration(
                       hintText: "Title",
-                      prefixIcon: Icon(Icons.title, color: Colors.blue,)
+                      prefixIcon: Icon(Icons.title, color: Colors.black,)
                     ),
                     onChanged: (value) => setState((){this.title = value; })
                   ),
@@ -79,7 +79,7 @@ class _AddTodoState extends State<AddTodo> {
                     maxLines: 10,
                     decoration: const InputDecoration(
                       hintText: "Description",
-                      prefixIcon: Icon(Icons.description, color: Colors.blue,)
+                      prefixIcon: Icon(Icons.description, color: Colors.black,)
                     ),
                     onChanged: (value) => setState((){this.desc = value; })
                   ),
@@ -88,12 +88,13 @@ class _AddTodoState extends State<AddTodo> {
           ),
         ),
         floatingActionButton: FloatingActionButton(
+          backgroundColor: Colors.blue[900],
         onPressed: () {
           if (this.title.trim() != '' && this.title.trim() != '')
           addToList(this.title.trim(), this.desc.trim(), context, this.rows,this.id);
         },
         tooltip: 'Add to List',
-        child: Icon(Icons.send),
+        child: Icon(Icons.send, color: Colors.white,),
       ), 
     );
   }

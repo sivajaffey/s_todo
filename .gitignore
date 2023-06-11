@@ -25,3 +25,19 @@ doc/api/
 
 .flutter-plugins
 .flutter-plugins-dependencies
+appreleasestodo.keystore
+key.properties
+# Ignore Gradle project-specific cache directory
+.gradle
+
+# Ignore Gradle build output directory
+build
+android
+.gitattributes
+upload_certificate.pem
+./set.sh
+.vscode
+.idea
+.metadata
+.DS_Store
+deploy.sh
