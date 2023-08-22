@@ -1,4 +1,4 @@
-# s_todo
+<img width="280" alt="Screenshot 2023-08-22 at 6 08 41 PM" src="https://github.com/sivajaffey/stodo/assets/53942949/807e5349-00a1-46e3-ae45-22819210a59c"><img width="280" alt="Screenshot 2023-08-22 at 6 08 33 PM" src="https://github.com/sivajaffey/stodo/assets/53942949/0cfcc045-db28-4c9c-995b-d243a4659022"># s_todo
 
 A TODO Application build using Flutter.
 
@@ -55,3 +55,11 @@ add these lines into android/app/build.gradle
 # Release Command 
 APK : flutter build apk --release or flutter build apk --release --no-tree-shake-icons
 Bundle : flutter build appbundle --release --no-tree-shake-icons
+# Screenshots
+
+<img width="280" alt="Screenshot 2023-08-22 at 6 08 48 PM" src="https://github.com/sivajaffey/stodo/assets/53942949/372e1fee-5529-43d8-9e52-04d70377af5f">
+<img width="280" alt="Screenshot 2023-08-22 at 6 08 45 PM" src="https://github.com/sivajaffey/stodo/assets/53942949/60e98d6f-e885-45c9-b8d3-ba103a5d5a7b">
+<img width="280" alt="Screenshot 2023-08-22 at 6 08 41 PM" src="https://github.com/sivajaffey/stodo/assets/53942949/41c0390e-75b1-4b69-b4c3-cbdd089576b4">
+<img width="280" alt="Screenshot 2023-08-22 at 6 08 37 PM" src="https://github.com/sivajaffey/stodo/assets/53942949/82c56249-72d3-4077-93e9-721afeab21bb">
+<img width="280" alt="Screenshot 2023-08-22 at 6 08 33 PM" src="https://github.com/sivajaffey/stodo/assets/53942949/8d2acb1e-2378-4b90-8167-bc3cfce81d89">
+
