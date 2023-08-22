@@ -1,8 +1,8 @@
 <img width="280" alt="Screenshot 2023-08-22 at 6 08 41 PM" src="https://github.com/sivajaffey/stodo/assets/53942949/807e5349-00a1-46e3-ae45-22819210a59c"><img width="280" alt="Screenshot 2023-08-22 at 6 08 33 PM" src="https://github.com/sivajaffey/stodo/assets/53942949/0cfcc045-db28-4c9c-995b-d243a4659022"># s_todo
 
 A TODO Application build using Flutter.
-# Available in Android 
-- link : https://play.google.com/store/apps/details?id=io.cordova.s_todo
+# Available platforms 
+- Android : https://play.google.com/store/apps/details?id=io.cordova.s_todo
 # Configure firebase 
 - lib/firebase_options.dart will be missing, configuration commands below.
 
